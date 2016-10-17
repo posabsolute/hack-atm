@@ -36,15 +36,12 @@ export default class TagsLoader {
     let ret = domelement.childNodes;
 
     domelement.querySelectorAll("*").forEach((el) => {
-      console.log(el);
       if ( scripts && this.nodeName( el, "script" ) && (!el.type || el.type.toLowerCase() === "text/javascript") ) {
             scripts.push( el.parentNode ? el.parentNode.removeChild( el ) : el );
       }
-
     });
-    console.log(script, "fuxk");
-    for(script in scripts)
-    {
+    
+    for(script in scripts){
       this.evalScript(scripts[script]);
     }
   }
